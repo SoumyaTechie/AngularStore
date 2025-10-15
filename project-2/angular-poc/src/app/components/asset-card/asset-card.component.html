@@ -1,0 +1,14 @@
+<div class="asset-card">
+  <img [src]="asset.image" alt="{{ asset.name }}" class="asset-image" />
+  <div class="asset-details">
+    <h3>{{ asset.name }}</h3>
+    <p><strong>Category:</strong> {{ asset.category }}</p>
+    <p><strong>Status:</strong> {{ asset.status }}</p>
+  </div>
+
+  <div class="card-actions">
+    <button class="view-btn" (click)="onView()">👁 View</button>
+    <button class="edit-btn" (click)="onEdit()">✏ Edit</button>
+    <button class="delete-btn" (click)="onDelete()">🗑 Delete</button>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<div class="edit-asset-form">
+  <h2>Edit Asset</h2>
+
+  <label>
+    Asset Name
+    <input type="text" [(ngModel)]="asset.name" />
+  </label>
+
+  <label>
+    Category
+    <input type="text" [(ngModel)]="asset.category" />
+  </label>
+
+  <label>
+    Image URL
+    <input type="text" [(ngModel)]="asset.image" />
+  </label>
+
+  <label>
+    Status
+    <select [(ngModel)]="asset.status">
+      <option>Available</option>
+      <option>In Use</option>
+      <option>Under Maintenance</option>
+    </select>
+  </label>
+
+  <div class="form-actions">
+    <button (click)="saveChanges()">💾 Save</button>
+    <button (click)="cancel()">❌ Cancel</button>
+  </div>
+</div>

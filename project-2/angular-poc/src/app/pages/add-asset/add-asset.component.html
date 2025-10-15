@@ -1,0 +1,29 @@
+<div class="add-asset-form">
+  <h2>Add New Asset</h2>
+
+  <label>
+    Asset Name
+    <input type="text" [(ngModel)]="newAsset.name" placeholder="Enter asset name" />
+  </label>
+
+  <label>
+    Category
+    <input type="text" [(ngModel)]="newAsset.category" placeholder="Enter category" />
+  </label>
+
+  <label>
+    Image URL
+    <input type="text" [(ngModel)]="newAsset.image" placeholder="Paste image link" />
+  </label>
+
+  <label>
+    Status
+    <select [(ngModel)]="newAsset.status">
+      <option>Available</option>
+      <option>In Use</option>
+      <option>Under Maintenance</option>
+    </select>
+  </label>
+
+  <button (click)="addAsset()">+ Add Asset</button>
+</div>

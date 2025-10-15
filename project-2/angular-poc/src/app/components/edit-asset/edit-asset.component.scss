@@ -1,0 +1,116 @@
+$primary-gradient: linear-gradient(90deg, #4f46e5, #9333ea);
+$primary-color: #4f46e5;
+$danger-color: #ef4444;
+$light-bg: #f9fafb;
+$text-color: #111827;
+$border-color: #e5e7eb;
+
+// :host {
+//   display: block;
+//   background-color: white;
+//   border-radius: 16px;
+//   padding: 2rem;
+//   margin-top: 2rem;
+//   box-shadow: 0 4px 20px rgba(79, 70, 229, 0.1);
+//   animation: fadeIn 0.3s ease-in-out;
+//   max-width: 600px;
+//   margin-left: auto;
+//   margin-right: auto;
+// }
+
+.edit-asset-form {
+ background-color: white;
+  border-radius: 16px;
+  padding: 0.1rem 2rem;
+  max-width: 600px;
+  margin: 0.1rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: $primary-gradient;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+}
+
+label {
+  display: block;
+  color: $text-color;
+  font-weight: 500;
+  margin-bottom: 0.2rem;
+
+  input,
+  select {
+    display: block;
+    width: 100%;
+    padding: 0.7rem 0.5rem;
+    border: 1px solid $border-color;
+    border-radius: 8px;
+    margin-top: 0.1rem;
+    font-size: 1rem;
+    background-color: $light-bg;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+    &:focus {
+      outline: none;
+      border-color: $primary-color;
+      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+      background-color: white;
+    }
+  }
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.1rem;
+
+  button {
+    padding: 0.7rem 1.5rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+
+    &:first-child {
+      background: $primary-gradient;
+      color: white;
+
+      &:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+      }
+    }
+
+    &:last-child {
+      background-color: $danger-color;
+      color: white;
+
+      &:hover {
+        background-color: darken($danger-color, 8%);
+        transform: scale(1.05);
+        box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+      }
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,32 @@
+<div class="overlay" *ngIf="isOpen" (click)="onClose()">
+  <div class="modal" (click)="$event.stopPropagation()">
+    <header>
+      <h2>{{ data?.['name'] || title }}</h2>
+      <button class="close-btn" (click)="onClose()">×</button>
+    </header>
+
+    <div class="modal-body">
+      <!-- ✅ Case 1: When 'data' is provided (view mode) -->
+      <ng-container *ngIf="data; else customContent">
+        <!-- 🖼️ Image -->
+        <img
+          *ngIf="data?.['image'] || data?.['imageUrl'] || data?.['photo']"
+          [src]="data?.['image'] || data?.['imageUrl'] || data?.['photo']"
+          alt="{{ data?.['name'] || 'Preview Image' }}"
+        />
+
+        <!-- ℹ️ Info -->
+        <div class="info">
+          <p *ngFor="let item of data | keyvalue">
+            <strong>{{ item.key | titlecase }}:</strong> {{ item.value }}
+          </p>
+        </div>
+      </ng-container>
+
+      <!-- ✅ Case 2: When using projected (custom) content like edit form -->
+      <ng-template #customContent>
+        <ng-content></ng-content>
+      </ng-template>
+    </div>
+  </div>
+</div>

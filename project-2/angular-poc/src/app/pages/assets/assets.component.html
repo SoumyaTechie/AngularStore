@@ -1,0 +1,36 @@
+<h2>Available Assets</h2>
+
+<div class="assets-grid">
+  <app-asset-card
+    *ngFor="let asset of assets; let i = index"
+    [asset]="asset"
+    [index]="i"
+    (view)="handleView($event)"
+    (edit)="handleEdit(i)"
+    (delete)="handleDelete(i)"
+  ></app-asset-card>
+</div>
+
+<!-- Edit Asset Modal -->
+<app-reusable-modal
+  [isOpen]="!!editingAsset"
+  title="Edit Asset"
+  (close)="closeEditForm()"
+>
+  <app-edit-asset
+    *ngIf="editingAsset"
+    [asset]="editingAsset"
+    (close)="closeEditForm()"
+    (updated)="refreshAssets()"
+  ></app-edit-asset>
+</app-reusable-modal>
+
+
+<!-- View Modal -->
+<app-reusable-modal
+  [isOpen]="showModal"
+  [title]="selectedAsset?.name || 'Asset Details'"
+  [data]="selectedAsset"
+  (close)="showModal = false"
+></app-reusable-modal>
+

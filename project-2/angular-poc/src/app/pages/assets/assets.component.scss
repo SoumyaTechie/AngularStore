@@ -1,0 +1,38 @@
+$light-bg: #f9fafb;
+
+:host {
+  display: block;
+  background-color: $light-bg;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 100vh;
+}
+
+h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #4f46e5, #9333ea);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.assets-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+app-asset-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 20px rgba(79, 70, 229, 0.2);
+  }
+}

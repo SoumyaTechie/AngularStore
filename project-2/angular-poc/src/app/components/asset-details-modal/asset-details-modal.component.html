@@ -1,0 +1,14 @@
+<div class="overlay" (click)="onClose()">
+  <div class="modal" (click)="$event.stopPropagation()">
+    <header>
+      <h2>{{ asset?.name }}</h2>
+      <button class="close-btn" (click)="onClose()">×</button>
+    </header>
+
+    <div class="modal-body">
+      <img [src]="asset?.image" alt="{{ asset?.name }}" />
+      <p><strong>Category:</strong> {{ asset?.category }}</p>
+      <p><strong>Status:</strong> {{ asset?.status }}</p>
+    </div>
+  </div>
+</div>
